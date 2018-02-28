@@ -1,0 +1,32 @@
+@import "reset";
+//@import url("//at.alicdn.com/t/font_538107_1mjg2l1nphode7b9.css");
+/* 浮动开始 */
+.fl, .pull-left{
+  float: left;
+}
+.fr, .pull-right{
+  float: right;
+}
+.clearfix::before, .clearfix::after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {clear: both;}
+.clearfix {clear: both;zoom: 1;}
+/* 浮动结束 */
+
+.display-inline-block {  display: inline-block;  }
+.display-none {  display: none;  }
+.display-block {  display: block;  }
+
+.container {
+  padding: 15px;
+  background: #fff;
+}
+
+.v-note-help-wrapper {
+  z-index: 3000 !important;
+}
+

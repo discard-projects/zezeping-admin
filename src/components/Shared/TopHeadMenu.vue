@@ -1,0 +1,49 @@
+<template>
+  <div v-if="canShow" class="display-none" :class="{'display-block': canShow}">
+    <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+      <router-link to="/"><el-menu-item class="fl" index="Home">主页</el-menu-item></router-link>
+      <router-link to="/components"><el-menu-item class="fl" index="Component">组件</el-menu-item></router-link>
+      <div class="fr" style="line-height: 60px; margin-right: 20px;">
+        <el-dropdown v-if="userInfo">
+          <div style="color: #13ce66">
+            <span> {{userInfo.nickname || userInfo.email}} <i class="el-icon-caret-bottom el-icon--right"></i></span>
+          </div>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+        <el-menu-item v-else index="null" @click="loginFromGithub">github登录</el-menu-item>
+      </div>
+    </el-menu>
+  </div>
+</template>
+
+<script>
+import { mapState } from 'vuex'
+export default {
+  computed: {
+    ...mapState({
+      userInfo: state => state.user.userInfo
+    }),
+    canShow () {
+      return ['Login', 'ComponentDemo'].indexOf(this.$route.name) === -1
+    },
+    activeIndex () {
+      return this.$route.name
+    }
+  },
+  methods: {
+    handleSelect (key, keyPath) {},
+    loginFromGithub () {
+      window.location.href = `${process.env.GITHUB_AUTH_HOST}/auth/github?auth_origin_url=${process.env.WEB_HOST}/login`
+    },
+    logout () {
+      this.api.logout().then(() => {
+        this.$store.dispatch('logout')
+      }).catch(() => {
+        this.$store.dispatch('logout')
+      })
+    }
+  }
+}
+</script>
