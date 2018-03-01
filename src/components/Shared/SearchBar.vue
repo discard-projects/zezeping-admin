@@ -25,7 +25,7 @@ export default {
   props: ['q', 'searches'],
   methods: {
     search () {
-      let query = Object.assign({}, this.$route.query, this.q)
+      let query = Object.assign({}, this.q)
       this.$router.push({ query })
     }
   },
