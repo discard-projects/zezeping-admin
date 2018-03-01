@@ -14,9 +14,7 @@ export default {
       form: {
         name: '',
         desc: '',
-        devices: [],
-        units: [],
-        visible: false
+        category_id: ''
       }
     }
   },

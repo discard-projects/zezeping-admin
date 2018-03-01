@@ -58,7 +58,11 @@ export default {
         key: 'name'
       }, {
         label: '创建时间',
-        key: 'created_at',
+        key: 'created_time',
+        width: 160
+      }, {
+        label: '更新时间',
+        key: 'updated_time',
         width: 160
       }],
       opIntro: {
