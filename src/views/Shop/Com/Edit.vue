@@ -11,10 +11,10 @@ export default {
   mixins: [edit],
   methods: {
     fetchData () {
-      this._fetchData(this.api.getComponent(this.itemId))
+      this._fetchData(this.api.getShop(this.itemId))
     },
     handlerUpdate () {
-      this._handlerUpdate(this.api.putComponent(this.form.id, this.form))
+      this._handlerUpdate(this.api.putShop(this.form.id, this.form))
     }
   },
   components: {

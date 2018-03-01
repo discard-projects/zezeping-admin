@@ -14,7 +14,8 @@ export default {
       form: {
         name: '',
         desc: '',
-        category_id: ''
+        category_id: '',
+        region_id: ''
       }
     }
   },

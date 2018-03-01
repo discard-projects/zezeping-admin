@@ -4,14 +4,17 @@
       <el-form-item label="商店名称">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
-      <el-form-item label="活动区域">
+      <el-form-item label="分类">
         <model-select v-model="form.category_id" apiPath="/categories" labelKey="name"></model-select>
+      </el-form-item>
+      <el-form-item label="区域">
+        <model-select v-model="form.region_id" apiPath="/regions" labelKey="name"></model-select>
       </el-form-item>
       <el-form-item label="描述">
         <el-input type="textarea" v-model="form.desc"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('formRef')">立即创建</el-button>
+        <el-button type="primary" @click="submitForm('formRef')">提交</el-button>
         <el-button>取消</el-button>
       </el-form-item>
     </el-form>
