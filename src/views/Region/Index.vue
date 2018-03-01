@@ -5,7 +5,7 @@
     <search-bar :q="q" :searches="searches">
       <template slot-scope="{search}"></template>
       <div slot="operations">
-        <el-button @click="$refs['newComRef'].dialogShow = true">新增组件</el-button>
+        <el-button @click="$refs['newComRef'].dialogShow = true">新增</el-button>
       </div>
     </search-bar>
     <s-table :tableData="tableData">
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     fetchData () {
-      this._fetchData(this.api.getComponents(this.$route.query))
+      this._fetchData(this.api.getRegions(this.$route.query))
     }
   },
   mounted () {
@@ -57,20 +57,12 @@ export default {
         label: '名称',
         key: 'name'
       }, {
-        label: '设备[wap/pc]',
-        key: 'devices',
-        valueHandler (value) { return value.join('/') || '-' }
-      }, {
-        label: '单位[px/rem]',
-        key: 'units',
-        valueHandler (value) { return value.join('/') }
-      }, {
-        label: '对外可见',
-        key: 'visible',
-        ctrl: 'custom'
-      }, {
         label: '创建时间',
-        key: 'created_at',
+        key: 'created_time',
+        width: 160
+      }, {
+        label: '更新时间',
+        key: 'updated_time',
         width: 160
       }],
       opIntro: {

@@ -47,12 +47,14 @@ var api = {
   loginFromGithub: (data) => cusAxios.get('auth/github', data),
   // validateToken: () => instance.get('auth/validate_token'),
   getMeProfile: () => cusAxios.get('/profile'),
-  getComponents: (params) => cusAxios.get('components', {params}),
-  getComponent: (id, params) => cusAxios.get(`components/${id}`, {params}),
-  getComponemtDomoCode: (id) => cusAxios.get(`components/${id}/demo_code`),
-  putComponent: (id, data) => cusAxios.put(`components/${id}`, data),
-  postComponent: (data) => cusAxios.post('components', data),
-  postComponentCodes: (componentId, data) => cusAxios.post(`components/${componentId}/component_codes`, data, { headers: { 'Content-Type': 'multipart/form-data' } })
+  // shop
+  getShops: (params) => cusAxios.get('shops', {params}),
+  getShop: (id, params) => cusAxios.get(`shops/${id}`, {params}),
+  // region
+  getRegions: (params) => cusAxios.get('regions', {params}),
+  getRegion: (id, params) => cusAxios.get(`regions/${id}`, {params}),
+  postRegion: (data) => cusAxios.post('regions', data),
+  putRegion: (id, data) => cusAxios.put(`regions/${id}`, data)
 }
 api.install = function (Vue, options) {
   if (options.store) {
