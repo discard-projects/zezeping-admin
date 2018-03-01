@@ -12,17 +12,13 @@ export default {
   data () {
     return {
       form: {
-        name: '',
-        desc: '',
-        devices: [],
-        units: [],
-        visible: false
+        name: ''
       }
     }
   },
   methods: {
     handlerCreate () {
-      this._handlerCreate(this.api.postShop(this.form))
+      this._handlerCreate(this.api.postCategory(this.form))
     }
   },
   components: {

@@ -50,11 +50,18 @@ var api = {
   // shop
   getShops: (params) => cusAxios.get('shops', {params}),
   getShop: (id, params) => cusAxios.get(`shops/${id}`, {params}),
+  postShop: (data) => cusAxios.post('shops', data),
+  putShop: (id, data) => cusAxios.put(`shops/${id}`, data),
   // region
   getRegions: (params) => cusAxios.get('regions', {params}),
   getRegion: (id, params) => cusAxios.get(`regions/${id}`, {params}),
   postRegion: (data) => cusAxios.post('regions', data),
-  putRegion: (id, data) => cusAxios.put(`regions/${id}`, data)
+  putRegion: (id, data) => cusAxios.put(`regions/${id}`, data),
+  // category
+  getCategories: (params) => cusAxios.get('categories', {params}),
+  getCategory: (id, params) => cusAxios.get(`categories/${id}`, {params}),
+  postCategory: (data) => cusAxios.post('categories', data),
+  putCategory: (id, data) => cusAxios.put(`categories/${id}`, data)
 }
 api.install = function (Vue, options) {
   if (options.store) {
