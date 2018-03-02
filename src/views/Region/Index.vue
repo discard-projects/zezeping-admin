@@ -8,10 +8,13 @@
         <el-button @click="$refs['newComRef'].dialogShow = true">新增</el-button>
       </div>
     </search-bar>
-    <s-table :tableData="tableData">
-      <template slot="visible" slot-scope="{row, $index, intro}">
-        <ToggleSwitch v-model="row.visible" :item="row" apiPath="/components/:id/toggle_switch?field=visible"></ToggleSwitch>
+    <s-table :tableData="tableData" tableType="expand">
+      <template slot="expand" slot-scope="{row, $index}">
+        <s-table :tableData="{data: row.children, dataIntros: tableData.dataIntros}"></s-table>
       </template>
+      <!--<template slot="visible" slot-scope="{row, $index, intro}">-->
+        <!--<ToggleSwitch v-model="row.visible" :item="row" apiPath="/components/:id/toggle_switch?field=visible"></ToggleSwitch>-->
+      <!--</template>-->
       <template slot="operation" slot-scope="{row, $index, intro}">
         <el-button size="mini" @click="$refs['editComRef'].item = row">编辑</el-button>
       </template>
