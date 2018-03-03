@@ -57,6 +57,15 @@ export default {
         label: '名称',
         key: 'name'
       }, {
+        label: '描述',
+        key: 'desc'
+      }, {
+        label: '评论数',
+        key: 'comments_count'
+      }, {
+        label: '评分',
+        key: 'rank'
+      }, {
         label: '创建时间',
         key: 'created_time',
         width: 160

@@ -14,6 +14,9 @@
         <el-input type="textarea" v-model="form.desc"></el-input>
       </el-form-item>
       <el-form-item>
+        <single-uploader @change="logoChange" v-model="form.logo_url" style="width: 100px; height: 100px" ref="logoRef"></single-uploader>
+      </el-form-item>
+      <el-form-item>
         <el-button type="primary" @click="submitForm('formRef')">提交</el-button>
         <el-button>取消</el-button>
       </el-form-item>
@@ -22,6 +25,7 @@
 </template>
 
 <script>
+import SingleUploader from '@/components/Shared/Uploader/SingleUploader'
 import ModelSelect from '@/components/Shared/Select/ModelSelect'
 import form from '@/components/Shared/Mixin/form'
 export default {
@@ -34,34 +38,13 @@ export default {
     }
   },
   methods: {
-    publishCodeFiles () {
-      let input = document.createElement('input')
-      input.type = 'file'
-      input.multiple = 'multiple'
-      input.style.display = 'none'
-      this.$el.appendChild(input)
-      input.onchange = (evt) => {
-        if (evt.target.files.length) {
-          let fd = new FormData()
-          Array.prototype.forEach.call(evt.target.files, file => {
-            fd.append('files', file)
-          })
-          fd.append('index', this.form.index)
-          this.uploading = true
-          this.api.postComponentCodes(this.form.id, fd).then(res => {
-            this.uploading = false
-            this.$emit('refetch')
-          }).catch(err => {
-            this.compiledErrData = err.response.data
-            this.uploading = false
-          })
-        }
-      }
-      input.click()
+    logoChange (logoFile) {
+      this.form.logo = logoFile
     }
   },
   components: {
-    ModelSelect
+    ModelSelect,
+    SingleUploader
   }
 }
 </script>

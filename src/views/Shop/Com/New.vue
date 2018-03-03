@@ -14,6 +14,7 @@ export default {
       form: {
         name: '',
         desc: '',
+        logo: null,
         category_id: '',
         region_id: ''
       }
@@ -21,7 +22,13 @@ export default {
   },
   methods: {
     handlerCreate () {
-      this._handlerCreate(this.api.postShop(this.form))
+      let fd = new FormData()
+      Object.keys(this.form).forEach(key => {
+        if (this.form[key]) {
+          fd.append(key, this.form[key])
+        }
+      })
+      this._handlerCreate(this.api.postShop(fd))
     }
   },
   components: {

@@ -14,7 +14,13 @@ export default {
       this._fetchData(this.api.getShop(this.itemId))
     },
     handlerUpdate () {
-      this._handlerUpdate(this.api.putShop(this.form.id, this.form))
+      let fd = new FormData()
+      Object.keys(this.form).forEach(key => {
+        if (this.form[key]) {
+          fd.append(key, this.form[key])
+        }
+      })
+      this._handlerUpdate(this.api.putShop(this.form.id, fd))
     }
   },
   components: {

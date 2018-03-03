@@ -50,15 +50,15 @@ var api = {
   // shop
   getShops: (params) => cusAxios.get('shops', {params}),
   getShop: (id, params) => cusAxios.get(`shops/${id}`, {params}),
-  postShop: (data) => cusAxios.post('shops', data),
-  putShop: (id, data) => cusAxios.put(`shops/${id}`, data),
+  postShop: (data) => cusAxios.post('shops', data, {headers: { 'Content-Type': 'multipart/form-data' }}),
+  putShop: (id, data) => cusAxios.put(`shops/${id}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}),
   // region
-  getRegions: (params) => cusAxios.get('regions', {params}),
+  getRegions: (params) => cusAxios.get('regions/index_roots', {params}),
   getRegion: (id, params) => cusAxios.get(`regions/${id}`, {params}),
   postRegion: (data) => cusAxios.post('regions', data),
   putRegion: (id, data) => cusAxios.put(`regions/${id}`, data),
   // category
-  getCategories: (params) => cusAxios.get('categories', {params}),
+  getCategories: (params) => cusAxios.get('categories/index_roots', {params}),
   getCategory: (id, params) => cusAxios.get(`categories/${id}`, {params}),
   postCategory: (data) => cusAxios.post('categories', data),
   putCategory: (id, data) => cusAxios.put(`categories/${id}`, data)
