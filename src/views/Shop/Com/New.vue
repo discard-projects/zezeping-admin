@@ -7,8 +7,9 @@
 <script>
 import ComForm from './ComForm.vue'
 import newMix from '@/components/Shared/Mixin/new'
+import formdataMix from '@/components/Shared/Mixin/formdata'
 export default {
-  mixins: [newMix],
+  mixins: [newMix, formdataMix],
   data () {
     return {
       form: {
@@ -16,7 +17,9 @@ export default {
         desc: '',
         logo: null,
         category_id: '',
-        region_id: ''
+        region_id: '',
+        attachment_image_ids: [],
+        attachment_images: []
       }
     }
   },
@@ -28,7 +31,7 @@ export default {
           fd.append(key, this.form[key])
         }
       })
-      this._handlerCreate(this.api.postShop(fd))
+      this._handlerCreate(this.api.postShop(this.getFormData(this.form)))
     }
   },
   components: {

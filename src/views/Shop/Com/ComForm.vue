@@ -13,8 +13,11 @@
       <el-form-item label="描述">
         <el-input type="textarea" v-model="form.desc"></el-input>
       </el-form-item>
-      <el-form-item>
-        <single-uploader @change="logoChange" v-model="form.logo_url" style="width: 100px; height: 100px" ref="logoRef"></single-uploader>
+      <el-form-item label="LOGO">
+        <single-uploader @change="logoChange" v-model="form.logo_url" ref="logoRef"></single-uploader>
+      </el-form-item>
+      <el-form-item label="Images">
+        <multiple-uploader v-model="form.attachment_image_ids" :attachment-images.sync="form.attachment_images"></multiple-uploader>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('formRef')">提交</el-button>
@@ -26,6 +29,7 @@
 
 <script>
 import SingleUploader from '@/components/Shared/Uploader/SingleUploader'
+import MultipleUploader from '@/components/Shared/Uploader/MultipleUploader'
 import ModelSelect from '@/components/Shared/Select/ModelSelect'
 import form from '@/components/Shared/Mixin/form'
 export default {
@@ -44,7 +48,8 @@ export default {
   },
   components: {
     ModelSelect,
-    SingleUploader
+    SingleUploader,
+    MultipleUploader
   }
 }
 </script>

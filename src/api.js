@@ -61,7 +61,9 @@ var api = {
   getCategories: (params) => cusAxios.get('categories/index_roots', {params}),
   getCategory: (id, params) => cusAxios.get(`categories/${id}`, {params}),
   postCategory: (data) => cusAxios.post('categories', data),
-  putCategory: (id, data) => cusAxios.put(`categories/${id}`, data)
+  putCategory: (id, data) => cusAxios.put(`categories/${id}`, data),
+  // attachment_image
+  postAttachmentImage: (data) => cusAxios.post('attachment_images', data, {headers: { 'Content-Type': 'multipart/form-data' }})
 }
 api.install = function (Vue, options) {
   if (options.store) {

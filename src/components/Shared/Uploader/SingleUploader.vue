@@ -42,8 +42,8 @@ export default {
 <style lang="scss" scoped>
   .select-img-box {
     display: inline-flex;
-    min-width: 50px;
-    min-height: 50px;
+    width: 100px;
+    height: 100px;
     text-align: center;
     border: 1px dashed #f2f2f2;
     align-items: center;
