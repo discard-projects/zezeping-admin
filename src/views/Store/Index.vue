@@ -9,9 +9,9 @@
       </div>
     </search-bar>
     <s-table :tableData="tableData">
-      <template slot="visible" slot-scope="{row, $index, intro}">
-        <ToggleSwitch v-model="row.visible" :item="row" apiPath="/components/:id/toggle_switch?field=visible"></ToggleSwitch>
-      </template>
+      <!--<template slot="visible" slot-scope="{row, $index, intro}">-->
+        <!--<ToggleSwitch v-model="row.visible" :item="row" apiPath="/components/:id/toggle_switch?field=visible"></ToggleSwitch>-->
+      <!--</template>-->
       <template slot="operation" slot-scope="{row, $index, intro}">
         <el-button size="mini" @click="$refs['editComRef'].item = row">编辑</el-button>
       </template>
@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     fetchData () {
-      this._fetchData(this.api.getShops(this.$route.query))
+      this._fetchData(this.api.getStores(this.$route.query))
     }
   },
   mounted () {

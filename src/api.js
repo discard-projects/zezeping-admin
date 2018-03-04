@@ -48,10 +48,10 @@ var api = {
   // validateToken: () => instance.get('auth/validate_token'),
   getMeProfile: () => cusAxios.get('/profile'),
   // shop
-  getShops: (params) => cusAxios.get('shops', {params}),
-  getShop: (id, params) => cusAxios.get(`shops/${id}`, {params}),
-  postShop: (data) => cusAxios.post('shops', data, {headers: { 'Content-Type': 'multipart/form-data' }}),
-  putShop: (id, data) => cusAxios.put(`shops/${id}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}),
+  getStores: (params) => cusAxios.get('stores', {params}),
+  getStore: (id, params) => cusAxios.get(`stores/${id}`, {params}),
+  postStore: (data) => cusAxios.post('stores', data, {headers: { 'Content-Type': 'multipart/form-data' }}),
+  putStore: (id, data) => cusAxios.put(`stores/${id}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}),
   // region
   getRegions: (params) => cusAxios.get('regions/index_roots', {params}),
   getRegion: (id, params) => cusAxios.get(`regions/${id}`, {params}),

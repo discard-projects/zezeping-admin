@@ -12,10 +12,10 @@ export default {
   mixins: [edit, formdataMix],
   methods: {
     fetchData () {
-      this._fetchData(this.api.getShop(this.itemId))
+      this._fetchData(this.api.getStore(this.itemId))
     },
     handlerUpdate () {
-      this._handlerUpdate(this.api.putShop(this.form.id, this.getFormData(this.form)))
+      this._handlerUpdate(this.api.putStore(this.form.id, this.getFormData(this.form)))
     }
   },
   components: {

@@ -31,7 +31,7 @@ export default {
           fd.append(key, this.form[key])
         }
       })
-      this._handlerCreate(this.api.postShop(this.getFormData(this.form)))
+      this._handlerCreate(this.api.postStore(this.getFormData(this.form)))
     }
   },
   components: {

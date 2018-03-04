@@ -2,7 +2,7 @@
   <div v-if="canShow" class="display-none" :class="{'display-block': canShow}">
     <el-menu :default-active="activeIndex" mode="horizontal" @select="handleSelect" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
       <router-link to="/"><el-menu-item class="fl" index="Home">主页</el-menu-item></router-link>
-      <router-link to="/shops"><el-menu-item class="fl" index="Shop">店铺</el-menu-item></router-link>
+      <router-link to="/stores"><el-menu-item class="fl" index="Store">店铺</el-menu-item></router-link>
       <router-link to="/categories"><el-menu-item class="fl" index="Category">分类</el-menu-item></router-link>
       <router-link to="/regions"><el-menu-item class="fl" index="Region">地区</el-menu-item></router-link>
       <div class="fr" style="line-height: 60px; margin-right: 20px;">
