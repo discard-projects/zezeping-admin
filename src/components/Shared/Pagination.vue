@@ -54,7 +54,7 @@ export default {
   mounted () {
     const paramQuery = this.$route.query
     this.q.page = (paramQuery.page && parseInt(paramQuery.page)) || 1
-    this.q.per_page = (paramQuery.per_page && parseInt(paramQuery.per_page)) || 10
+    this.q.per_page = (paramQuery.per_page && parseInt(paramQuery.per_page)) || 25
   }
 }
 </script>
