@@ -12,7 +12,8 @@ export default {
   data () {
     return {
       form: {
-        name: ''
+        name: '',
+        parent_id: ''
       }
     }
   },

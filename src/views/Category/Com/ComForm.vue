@@ -4,12 +4,9 @@
       <el-form-item label="名称">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
-      <!--<el-form-item label="所属区域">-->
-        <!--<el-select v-model="form.region" placeholder="请选择活动区域">-->
-          <!--<el-option label="区域一" value="shanghai"></el-option>-->
-          <!--<el-option label="区域二" value="beijing"></el-option>-->
-        <!--</el-select>-->
-      <!--</el-form-item>-->
+      <el-form-item label="区域">
+        <model-select v-model="form.parent_id" apiPath="/categories" labelKey="name"></model-select>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('formRef')">提交</el-button>
         <el-button>取消</el-button>
@@ -20,6 +17,7 @@
 
 <script>
 import form from '@/components/Shared/Mixin/form'
+import ModelSelect from '@/components/Shared/Select/ModelSelect'
 export default {
   mixins: [form],
   data () {
@@ -55,6 +53,9 @@ export default {
       }
       input.click()
     }
+  },
+  components: {
+    ModelSelect
   }
 }
 </script>
