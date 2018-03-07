@@ -19,7 +19,10 @@ export default {
         category_id: '',
         region_id: '',
         attachment_image_ids: [],
-        attachment_images: []
+        attachment_images: [],
+        store_detail: {
+          phones: []
+        }
       }
     }
   },

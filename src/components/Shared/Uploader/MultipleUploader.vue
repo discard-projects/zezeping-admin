@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li v-for="(item,index) in attachmentImages" :key="index">
-      <img :src="item.file.url" class="thumb" alt="">
+      <img :src="item.file.thumb.url" class="thumb" alt="">
     </li>
     <li>
       <div class="select-img-box" @click="$refs['file'].click()">
