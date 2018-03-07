@@ -1,4 +1,6 @@
+import Vue from 'vue'
 import axios from 'axios'
+import router from '@/router'
 let store = null
 const cusAxios = axios.create({
   baseURL: process.env.API_ROOT,
@@ -25,6 +27,22 @@ cusAxios.interceptors.response.use(function (response) {
   return response
 }, function (error) {
   // Do something with response error
+  Vue.prototype.$loadingBar.error()
+  if (error.response) {
+    if (error.response.status === 401) {
+      Vue.prototype.$message({ showClose: true, message: error.response.data.message || 'Unauthorized!', type: 'error' })
+      store.dispatch('logout')
+      router.push('/login')
+    } else if (error.response.status === 500) {
+      Vue.prototype.$message({ showClose: true, message: 'data error!', type: 'error' })
+    } else if (error.response.status === 404) {
+      Vue.prototype.$message({ showClose: true, message: '404 Not Found!', type: 'error' })
+    } else if (error.response.data && error.response.data.message) {
+      Vue.prototype.$message({ showClose: true, message: error.response.data.message, type: 'error' })
+    }
+  } else {
+    Vue.prototype.$message({ showClose: true, message: 'network error', type: 'error' })
+  }
   return Promise.reject(error)
 })
 
@@ -41,11 +59,11 @@ const tokenHeader = () => {
 }
 
 var api = {
-  login: (data) => cusAxios.post('auth/sign_in', data),
-  register: (data) => cusAxios.post('auth', data),
-  logout: () => cusAxios.delete('/auth/sign_out'),
-  loginFromGithub: (data) => cusAxios.get('auth/github', data),
-  // validateToken: () => instance.get('auth/validate_token'),
+  login: (data) => cusAxios.post('auth2/sign_in', data),
+  register: (data) => cusAxios.post('auth2', data),
+  logout: () => cusAxios.delete('/auth2/sign_out'),
+  loginFromGithub: (data) => cusAxios.get('auth2/github', data),
+  // validateToken: () => instance.get('auth2/validate_token'),
   getMeProfile: () => cusAxios.get('/profile'),
   // shop
   getStores: (params) => cusAxios.get('stores', {params}),

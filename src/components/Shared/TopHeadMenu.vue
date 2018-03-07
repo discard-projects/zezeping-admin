@@ -14,7 +14,6 @@
             <el-dropdown-item @click.native="logout">退出</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
-        <el-menu-item v-else index="null" @click="loginFromGithub">github登录</el-menu-item>
       </div>
     </el-menu>
   </div>
@@ -36,14 +35,13 @@ export default {
   },
   methods: {
     handleSelect (key, keyPath) {},
-    loginFromGithub () {
-      window.location.href = `${process.env.GITHUB_AUTH_HOST}/auth/github?auth_origin_url=${process.env.WEB_HOST}/login`
-    },
     logout () {
       this.api.logout().then(() => {
         this.$store.dispatch('logout')
+        this.$router.push('/login')
       }).catch(() => {
         this.$store.dispatch('logout')
+        this.$router.push('/login')
       })
     }
   }

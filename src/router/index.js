@@ -23,4 +23,27 @@ if (window.localStorage.userInfo) {
   store.dispatch('setUserInfo', JSON.parse(window.localStorage.userInfo))
 }
 
+// Log in the middle, the page needs to log in, without the login situation directly jump login
+router.beforeEach((to, from, next) => {
+  if (to.query && to.query['account_confirmation_success']) {
+    store.dispatch('setAuthInfo', to.query)
+  }
+  if (to.matched.some(record => record.meta.auth)) {
+    if (store.state.user.userInfo) {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    }
+  } else {
+    if (to.name === 'Login' && store.state.user.userInfo) {
+      next(false)
+    } else {
+      next()
+    }
+  }
+})
+
 export default router
