@@ -34,10 +34,8 @@ export default {
       searches: [
         {
           control: 'input',
-          key: 'q_email_eq',
-          placeholder: '邮箱'
-        }, {
-          key: 'q_roles_name_eq'
+          key: 'q_name_cont',
+          placeholder: '名称'
         }
       ]
     }
