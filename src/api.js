@@ -81,7 +81,12 @@ var api = {
   postCategory: (data) => cusAxios.post('categories', data),
   putCategory: (id, data) => cusAxios.put(`categories/${id}`, data),
   // attachment_image
-  postAttachmentImage: (data) => cusAxios.post('attachment_images', data, {headers: { 'Content-Type': 'multipart/form-data' }})
+  postAttachmentImage: (data) => cusAxios.post('attachment_images', data, {headers: { 'Content-Type': 'multipart/form-data' }}),
+  // banners
+  getBanners: (params) => cusAxios.get('banners', {params}),
+  postBanner: (data) => cusAxios.post('banners', data),
+  putBanner: (id, data) => cusAxios.put(`banners/${id}`, data),
+  getBanner: (id, params) => cusAxios.get(`banners/${id}`, {params})
 }
 api.install = function (Vue, options) {
   if (options.store) {
