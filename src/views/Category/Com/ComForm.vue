@@ -7,6 +7,12 @@
       <el-form-item label="父分类">
         <model-select v-model="form.parent_id" apiPath="/categories" labelKey="name"></model-select>
       </el-form-item>
+      <el-form-item label="Enabled">
+        <el-switch v-model="form.enabled"></el-switch>
+      </el-form-item>
+      <el-form-item label="Recommended">
+        <el-switch v-model="form.recommended"></el-switch>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('formRef')">提交</el-button>
         <el-button>取消</el-button>

@@ -13,7 +13,9 @@ export default {
     return {
       form: {
         name: '',
-        parent_id: ''
+        parent_id: '',
+        enabled: true,
+        recommend: false
       }
     }
   },
