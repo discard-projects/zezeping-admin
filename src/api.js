@@ -37,8 +37,8 @@ cusAxios.interceptors.response.use(function (response) {
       Vue.prototype.$message({ showClose: true, message: 'data error!', type: 'error' })
     } else if (error.response.status === 404) {
       Vue.prototype.$message({ showClose: true, message: '404 Not Found!', type: 'error' })
-    } else if (error.response.data && error.response.data.message) {
-      Vue.prototype.$message({ showClose: true, message: error.response.data.message, type: 'error' })
+    } else if (error.response.data && error.response.data.msg) {
+      Vue.prototype.$message({ showClose: true, message: error.response.data.msg, type: 'error' })
     }
   } else {
     Vue.prototype.$message({ showClose: true, message: 'network error', type: 'error' })
