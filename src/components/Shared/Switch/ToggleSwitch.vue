@@ -12,6 +12,9 @@ export default {
       require: true,
       default: false
     },
+    column: {
+      require: true
+    },
     item: {
       require: true,
       type: Object
@@ -40,7 +43,7 @@ export default {
     },
     shouldConfirm: {
       require: false,
-      default: false
+      default: true
     }
   },
   data () {
@@ -62,14 +65,14 @@ export default {
   methods: {
     changeValue (newVal) {
       if (this.shouldConfirm) {
-        this.$confirm('Are you sure change status?', 'confirm', {
-          confirmButtonText: 'sure',
-          cancelButtonText: 'cancel',
+        this.$confirm(`确定改变 ${this.column} -> ${newVal}?`, '确认', {
+          confirmButtonText: '确认',
+          cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
           this.sendChange(newVal)
         }).catch(() => {
-          this.item.enabled = !this.item.enabled
+          this.item[this.column] = !this.item[this.column]
         })
       } else {
         this.sendChange(newVal)

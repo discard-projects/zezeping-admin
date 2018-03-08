@@ -23,9 +23,9 @@
             <span v-if="item['$foldClose'] && item.children && item.children.length" @click="changeState(item)">▶</span>
             <span v-else-if="!item['$foldClose'] && item.children && item.children.length" @click="changeState(item)">▼</span>
             <span>{{item.name}}</span>
-            <ToggleSwitch v-model="item.enabled" :item="item" apiPath="/categories/:id/toggle_switch?field=enabled" on-text="Enabled"></ToggleSwitch>
+            <ToggleSwitch v-model="item.enabled" :item="item" column="enabled" apiPath="/categories/:id/toggle_switch?field=enabled" on-text="Enabled"></ToggleSwitch>
             <el-button size="mini" @click="$refs['editComRef'].item = item">编辑</el-button>
-            <ToggleSwitch v-model="item.recommended" :item="item" apiPath="/categories/:id/toggle_switch?field=recommended" on-text="Recommended"></ToggleSwitch>
+            <ToggleSwitch v-model="item.recommended" :item="item" column="recommended" apiPath="/categories/:id/toggle_switch?field=recommended" on-text="Recommended"></ToggleSwitch>
           </div>
         </template>
       </sortable-tree>
