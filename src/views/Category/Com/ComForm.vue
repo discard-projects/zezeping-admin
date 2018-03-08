@@ -4,7 +4,7 @@
       <el-form-item label="名称">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
-      <el-form-item label="区域">
+      <el-form-item label="父分类">
         <model-select v-model="form.parent_id" apiPath="/categories" labelKey="name"></model-select>
       </el-form-item>
       <el-form-item>
