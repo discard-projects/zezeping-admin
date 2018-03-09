@@ -16,7 +16,7 @@ export default {
         name: '',
         desc: '',
         logo: null,
-        category_id: '',
+        category_ids: [],
         region_id: '',
         address: '',
         attachment_image_ids: [],

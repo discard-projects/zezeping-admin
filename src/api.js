@@ -23,7 +23,13 @@ cusAxios.interceptors.request.use(function (config) {
 })
 // Add a response interceptor
 cusAxios.interceptors.response.use(function (response) {
+  Vue.prototype.$loadingBar.finish()
   // Do something with response data
+  if (response.data.msg) {
+    Vue.prototype.$message({ showClose: true, message: response.data.msg, type: 'success' })
+  } else if (response.status === 204) {
+    Vue.prototype.$message({ showClose: true, message: 'success', type: 'success' })
+  }
   return response
 }, function (error) {
   // Do something with response error

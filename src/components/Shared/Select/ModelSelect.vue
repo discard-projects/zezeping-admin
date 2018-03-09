@@ -1,7 +1,9 @@
 <template>
-  <el-select v-model.number="selectValue" filterable remote placeholder="search" :remote-method="remoteMethod" :loading="loading">
-    <el-option v-for="item in items" :key="item.id" :label="item[labelKey]" :value="item.id"></el-option>
-  </el-select>
+  <div>
+    <el-select v-model="selectValue" filterable remote placeholder="search" :multiple="multiple" :remote-method="remoteMethod" :loading="loading" style="width: 90%">
+      <el-option v-for="item in items" :key="item.id" :label="item[labelKey]" :value="item.id"></el-option>
+    </el-select>
+  </div>
 </template>
 
 <script>
@@ -21,6 +23,10 @@ export default {
     },
     labelKey: {
       require: true
+    },
+    multiple: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -47,17 +53,27 @@ export default {
     }
   },
   methods: {
-    remoteMethod (query) {
-      this.cusAxios.get(this.realApi, {[`q_${this.labelKey}_cont`]: query}).then(res => {
-        this.loading = false
-        this.items = res.data.items
-      }).catch(() => {
-        this.loading = false
-      })
+    remoteMethod (query, isFirst) {
+      if (!isFirst) {
+        this.cusAxios.get(this.realApi, {params: {[`q_${this.labelKey}_cont`]: query}}).then(res => {
+          this.loading = false
+          this.items = res.data.items
+        }).catch(() => {
+          this.loading = false
+        })
+      } else {
+        if (this.multiple) {
+          this.cusAxios.get(this.realApi, {params: {[`q_id_in_any`]: this.value}}).then(res => {
+            if (res.data.items) {
+              this.items = res.data.items
+            }
+          })
+        }
+      }
     }
   },
   mounted () {
-    this.remoteMethod()
+    this.remoteMethod('', true)
   }
 }
 </script>
