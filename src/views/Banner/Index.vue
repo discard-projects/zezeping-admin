@@ -12,6 +12,9 @@
       <template slot="image" slot-scope="{row, $index, intro}">
         <img :src="row.image.thumb.url" alt="" style="max-height: 40px">
       </template>
+      <template slot="enabled" slot-scope="{row, $index, intro}">
+        <ToggleSwitch v-model="row.enabled" :item="row" column="enabled" apiPath="/banners/:id/toggle_switch?field=enabled"></ToggleSwitch>
+      </template>
       <template slot="operation" slot-scope="{row, $index, intro}">
         <el-button size="mini" @click="$refs['editComRef'].item = row">编辑</el-button>
       </template>
@@ -66,7 +69,8 @@ export default {
         ctrl: 'custom'
       }, {
         label: 'Enabled',
-        key: 'enabled'
+        key: 'enabled',
+        ctrl: 'custom'
       }, {
         label: '创建时间',
         key: 'created_time',
