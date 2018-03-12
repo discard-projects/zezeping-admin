@@ -1,7 +1,8 @@
 <template>
   <ul>
-    <li v-for="(item,index) in attachmentImages" :key="index">
+    <li v-for="(item,index) in attachmentImages" :key="index" style="position: relative">
       <img :src="item.file.thumb.url" class="thumb" alt="">
+      <i class="el-icon-delete" style="position: absolute; top: 0; right: 0; z-index: 1; color: red; background: #fff" @click.self.stop="dropItem(item)"></i>
     </li>
     <li>
       <div class="select-img-box" @click="$refs['file'].click()">
@@ -45,6 +46,10 @@ export default {
           this.selectValue = [...this.attachmentImages, res.data.item]
         })
       }
+    },
+    dropItem (item) {
+      console.log(item)
+      this.selectValue = [...this.selectValue.splice(this.selectValue.indexOf(item, 1))]
     }
   }
 }

@@ -14,6 +14,7 @@
       <!--</template>-->
       <template slot="operation" slot-scope="{row, $index, intro}">
         <el-button size="mini" @click="$refs['editComRef'].item = row">编辑</el-button>
+        <tmp-new-comment ref="tmpNewCommentRef" :store="row" @fetchData="fetchData"></tmp-new-comment>
       </template>
     </s-table>
     <pagination :q="q" :paginateMeta="paginateMeta"></pagination>
@@ -26,6 +27,7 @@ import New from './Com/New.vue'
 import Edit from './Com/Edit.vue'
 import index from '@/components/Shared/Mixin/index'
 import query from '@/components/Shared/Mixin/query'
+import TmpNewComment from './tmp/TmpNewComment.vue'
 export default {
   mixins: [index, query],
   data () {
@@ -81,7 +83,8 @@ export default {
   components: {
     New,
     Edit,
-    ToggleSwitch
+    ToggleSwitch,
+    TmpNewComment
   }
 }
 </script>

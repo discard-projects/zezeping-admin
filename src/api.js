@@ -76,6 +76,7 @@ var api = {
   getStore: (id, params) => cusAxios.get(`stores/${id}`, {params}),
   postStore: (data) => cusAxios.post('stores', data, {headers: { 'Content-Type': 'multipart/form-data' }}),
   putStore: (id, data) => cusAxios.put(`stores/${id}`, data, {headers: { 'Content-Type': 'multipart/form-data' }}),
+  postStoreComment: (storeId, data) => cusAxios.post(`stores/${storeId}/comments`, data),
   // region
   getRegions: (params) => cusAxios.get('regions/index_roots', {params}),
   getRegion: (id, params) => cusAxios.get(`regions/${id}`, {params}),
