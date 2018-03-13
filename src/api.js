@@ -65,10 +65,9 @@ const tokenHeader = () => {
 }
 
 var api = {
-  login: (data) => cusAxios.post('auth2/sign_in', data),
-  register: (data) => cusAxios.post('auth2', data),
-  logout: () => cusAxios.delete('/auth2/sign_out'),
-  loginFromGithub: (data) => cusAxios.get('auth2/github', data),
+  login: (data) => cusAxios.post('auth_admin/sign_in', data),
+  register: (data) => cusAxios.post('auth_admin', data),
+  logout: () => cusAxios.delete('/auth_admin/sign_out'),
   // validateToken: () => instance.get('auth2/validate_token'),
   getMeProfile: () => cusAxios.get('/profile'),
   // shop
