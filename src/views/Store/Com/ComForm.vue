@@ -19,6 +19,10 @@
           <el-form-item label="描述">
             <el-input type="textarea" v-model="form.desc"></el-input>
           </el-form-item>
+          <el-form-item label="经纬度">
+            <el-input v-model="form.lat" placeholder="经度"></el-input>
+            <el-input v-model="form.lng" placeholder="纬度"></el-input>
+          </el-form-item>
           <el-form-item label="LOGO">
             <single-uploader @change="logoChange" v-model="form.logo_thumb" ref="logoRef"></single-uploader>
           </el-form-item>

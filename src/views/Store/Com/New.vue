@@ -23,7 +23,9 @@ export default {
         attachment_images: [],
         store_detail: {
           phones: []
-        }
+        },
+        lat: '',
+        lng: ''
       }
     }
   },
