@@ -13,6 +13,9 @@
       <el-form-item label="推荐">
         <el-switch v-model="form.recommended"></el-switch>
       </el-form-item>
+      <el-form-item label="LOGO">
+        <single-uploader @change="logoChange" v-model="form.logo_thumb" ref="logoRef"></single-uploader>
+      </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="submitForm('formRef')">提交</el-button>
         <el-button>取消</el-button>
@@ -24,6 +27,7 @@
 <script>
 import form from '@/components/Shared/Mixin/form'
 import ModelSelect from '@/components/Shared/Select/ModelSelect'
+import SingleUploader from '@/components/Shared/Uploader/SingleUploader'
 export default {
   mixins: [form],
   data () {
@@ -34,6 +38,9 @@ export default {
     }
   },
   methods: {
+    logoChange (logoFile) {
+      this.form.logo = logoFile
+    },
     publishCodeFiles () {
       let input = document.createElement('input')
       input.type = 'file'
@@ -61,7 +68,8 @@ export default {
     }
   },
   components: {
-    ModelSelect
+    ModelSelect,
+    SingleUploader
   }
 }
 </script>

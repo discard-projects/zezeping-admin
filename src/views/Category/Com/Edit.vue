@@ -7,14 +7,15 @@
 <script>
 import ComForm from './ComForm.vue'
 import edit from '@/components/Shared/Mixin/edit'
+import formdataMix from '@/components/Shared/Mixin/formdata'
 export default {
-  mixins: [edit],
+  mixins: [edit, formdataMix],
   methods: {
     fetchData () {
       this._fetchData(this.api.getCategory(this.itemId))
     },
     handlerUpdate () {
-      this._handlerUpdate(this.api.putCategory(this.form.id, this.form))
+      this._handlerUpdate(this.api.putCategory(this.form.id, this.getFormData(this.form)))
     }
   },
   components: {

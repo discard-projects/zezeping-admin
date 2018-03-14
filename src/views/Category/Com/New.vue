@@ -7,21 +7,23 @@
 <script>
 import ComForm from './ComForm.vue'
 import newMix from '@/components/Shared/Mixin/new'
+import formdataMix from '@/components/Shared/Mixin/formdata'
 export default {
-  mixins: [newMix],
+  mixins: [newMix, formdataMix],
   data () {
     return {
       form: {
         name: '',
         parent_id: '',
         enabled: true,
-        recommended: false
+        recommended: false,
+        logo: ''
       }
     }
   },
   methods: {
     handlerCreate () {
-      this._handlerCreate(this.api.postCategory(this.form))
+      this._handlerCreate(this.api.postCategory(this.getFormData(this.form)))
     }
   },
   components: {
