@@ -15,7 +15,7 @@ export default {
         name: '',
         parent_id: '',
         enabled: true,
-        recommend: false
+        recommended: false
       }
     }
   },
