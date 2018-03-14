@@ -26,6 +26,7 @@
             <ToggleSwitch v-model="item.recommended" :item="item" column="recommended" apiPath="/categories/:id/toggle_switch?field=recommended" on-text="Recommended"></ToggleSwitch>
             <el-button size="mini" @click="$refs['editComRef'].item = item">编辑</el-button>
             <ToggleSwitch v-model="item.enabled" :item="item" column="enabled" apiPath="/categories/:id/toggle_switch?field=enabled" on-text="Enabled"></ToggleSwitch>
+            <el-button size="mini" icon="el-icon-sort-down" @click="positionDown(item)"></el-button>{{item.position}}<el-button size="mini" icon="el-icon-sort-up" @click="positionUp(item)"></el-button>
           </div>
         </template>
       </sortable-tree>
@@ -72,6 +73,16 @@ export default {
       this.api.putCategory(option.data.id, {parent_id: option.afterParent.id}).then(res => {
         this.fetchData()
       }).catch(() => {
+        this.fetchData()
+      })
+    },
+    positionUp (item) {
+      this.api.putIncrementPosition(item.id).then(res => {
+        this.fetchData()
+      })
+    },
+    positionDown (item) {
+      this.api.putDecrementPosition(item.id).then(res => {
         this.fetchData()
       })
     }

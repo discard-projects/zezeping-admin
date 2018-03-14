@@ -10,7 +10,7 @@
       <el-form-item label="Enabled">
         <el-switch v-model="form.enabled"></el-switch>
       </el-form-item>
-      <el-form-item label="Recommended">
+      <el-form-item label="推荐">
         <el-switch v-model="form.recommended"></el-switch>
       </el-form-item>
       <el-form-item>

@@ -86,6 +86,8 @@ var api = {
   getCategory: (id, params) => cusAxios.get(`categories/${id}`, {params}),
   postCategory: (data) => cusAxios.post('categories', data),
   putCategory: (id, data) => cusAxios.put(`categories/${id}`, data),
+  putIncrementPosition: (id, data) => cusAxios.put(`categories/${id}/increment_position`, data),
+  putDecrementPosition: (id, data) => cusAxios.put(`categories/${id}/decrement_position`, data),
   // attachment_image
   postAttachmentImage: (data) => cusAxios.post('attachment_images', data, {headers: { 'Content-Type': 'multipart/form-data' }}),
   // banners
