@@ -60,6 +60,9 @@ export default {
         label: '描述',
         key: 'desc'
       }, {
+        label: '分类',
+        key: 'category_names'
+      }, {
         label: '评论数',
         key: 'comments_count'
       }, {
