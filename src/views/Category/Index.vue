@@ -76,12 +76,12 @@ export default {
         this.fetchData()
       })
     },
-    positionUp (item) {
+    positionDown (item) {
       this.api.putIncrementPosition(item.id).then(res => {
         this.fetchData()
       })
     },
-    positionDown (item) {
+    positionUp (item) {
       this.api.putDecrementPosition(item.id).then(res => {
         this.fetchData()
       })
