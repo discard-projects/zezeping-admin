@@ -15,6 +15,7 @@ export default {
       form: {
         name: '',
         desc: '',
+        open_time_desc: '',
         logo: null,
         category_ids: [],
         region_id: '',

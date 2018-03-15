@@ -16,6 +16,9 @@
           <el-form-item label="详细地址">
             <el-input type="textarea" v-model="form.address"></el-input>
           </el-form-item>
+          <el-form-item label="营业时间信息">
+            <el-input type="textarea" v-model="form.open_time_desc"></el-input>
+          </el-form-item>
           <el-form-item label="描述">
             <el-input type="textarea" v-model="form.desc"></el-input>
           </el-form-item>
