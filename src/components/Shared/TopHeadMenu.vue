@@ -5,7 +5,8 @@
       <router-link to="/stores"><el-menu-item class="fl" index="Store">店铺</el-menu-item></router-link>
       <router-link to="/categories"><el-menu-item class="fl" index="Category">分类</el-menu-item></router-link>
       <router-link to="/regions"><el-menu-item class="fl" index="Region">地区</el-menu-item></router-link>
-      <router-link to="/banners"><el-menu-item class="fl" index="Region">横幅</el-menu-item></router-link>
+      <router-link to="/banners"><el-menu-item class="fl" index="Banner">横幅</el-menu-item></router-link>
+      <router-link to="/moments"><el-menu-item class="fl" index="Moment">商圈</el-menu-item></router-link>
       <div class="fr" style="line-height: 60px; margin-right: 20px;">
         <el-dropdown v-if="userInfo">
           <div style="color: #13ce66">

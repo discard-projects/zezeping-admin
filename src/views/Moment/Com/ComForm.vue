@@ -1,17 +1,14 @@
 <template>
   <div v-if="form">
     <el-form ref="formRef" :model="form" label-width="80px">
-      <el-form-item label="名称">
-        <el-input v-model="form.name"></el-input>
+      <el-form-item label="商店">
+        <model-select v-model="form.store_id" apiPath="/stores" labelKey="name"></model-select>
       </el-form-item>
-      <el-form-item label="描述">
-        <el-input type="textarea" v-model="form.desc"></el-input>
+      <el-form-item label="内容">
+        <el-input type="textarea" v-model="form.content"></el-input>
       </el-form-item>
-      <el-form-item label="链接">
-        <el-input v-model="form.link"></el-input>
-      </el-form-item>
-      <el-form-item label="图片">
-        <single-uploader @change="imageChange" v-model="form.image_thumb" ref="logoRef"></single-uploader>
+      <el-form-item label="Images">
+        <multiple-uploader v-model="form.attachment_image_ids" :attachment-images.sync="form.attachment_images"></multiple-uploader>
       </el-form-item>
       <el-form-item label="对外可见">
         <el-checkbox v-model="form.enabled"></el-checkbox>

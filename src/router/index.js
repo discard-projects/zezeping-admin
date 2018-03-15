@@ -12,7 +12,8 @@ let router = new Router({
     { path: '/stores', name: 'Store', component: (resolve) => { require(['@/views/Store/Index'], resolve) } },
     { path: '/regions', name: 'Region', component: (resolve) => { require(['@/views/Region/Index'], resolve) } },
     { path: '/categories', name: 'Category', component: (resolve) => { require(['@/views/Category/Index'], resolve) } },
-    { path: '/banners', name: 'Banner', component: (resolve) => { require(['@/views/Banner/Index'], resolve) } }
+    { path: '/banners', name: 'Banner', component: (resolve) => { require(['@/views/Banner/Index'], resolve) } },
+    { path: '/moments', name: 'Moment', component: (resolve) => { require(['@/views/Moment/Index'], resolve) } }
   ]
 })
 

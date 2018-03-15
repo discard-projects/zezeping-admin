@@ -94,7 +94,12 @@ var api = {
   getBanners: (params) => cusAxios.get('banners', {params}),
   postBanner: (data) => cusAxios.post('banners', data),
   putBanner: (id, data) => cusAxios.put(`banners/${id}`, data),
-  getBanner: (id, params) => cusAxios.get(`banners/${id}`, {params})
+  getBanner: (id, params) => cusAxios.get(`banners/${id}`, {params}),
+  // moment
+  getMoments: (params) => cusAxios.get('moments', {params}),
+  postMoment: (data) => cusAxios.post('moments', data),
+  putMoment: (id, data) => cusAxios.put(`moments/${id}`, data),
+  getMoment: (id, params) => cusAxios.get(`moments/${id}`, {params})
 }
 api.install = function (Vue, options) {
   if (options.store) {
