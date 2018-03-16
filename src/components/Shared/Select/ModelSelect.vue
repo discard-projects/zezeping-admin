@@ -62,13 +62,12 @@ export default {
           this.loading = false
         })
       } else {
-        if (this.multiple) {
-          this.cusAxios.get(this.realApi, {params: {[`q_id_in_any`]: this.value}}).then(res => {
-            if (res.data.items) {
-              this.items = res.data.items
-            }
-          })
-        }
+        let ids = this.multiple ? this.value : [this.value]
+        this.cusAxios.get(this.realApi, {params: {[`q_id_in_any`]: ids}}).then(res => {
+          if (res.data.items) {
+            this.items = res.data.items
+          }
+        })
       }
     }
   },
