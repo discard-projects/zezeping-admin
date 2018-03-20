@@ -12,6 +12,9 @@
       <!--<template slot="visible" slot-scope="{row, $index, intro}">-->
         <!--<ToggleSwitch v-model="row.visible" :item="row" apiPath="/components/:id/toggle_switch?field=visible"></ToggleSwitch>-->
       <!--</template>-->
+      <template slot="suggested_at" slot-scope="{row, $index, intro}">
+        <ToggleSwitch v-model="row.suggested_at" :item="row" column="suggested_at" apiPath="/stores/:id/toggle_switch?field=suggested_at"></ToggleSwitch>
+      </template>
       <template slot="operation" slot-scope="{row, $index, intro}">
         <el-button size="mini" @click="$refs['editComRef'].item = row">编辑</el-button>
         <tmp-new-comment ref="tmpNewCommentRef" :store="row" @fetchData="fetchData"></tmp-new-comment>
@@ -57,9 +60,6 @@ export default {
         label: '名称',
         key: 'name'
       }, {
-        label: '描述',
-        key: 'desc'
-      }, {
         label: '分类',
         key: 'category_names'
       }, {
@@ -68,6 +68,10 @@ export default {
       }, {
         label: '评分',
         key: 'rank'
+      }, {
+        label: '推荐',
+        key: 'suggested_at',
+        ctrl: 'custom'
       }, {
         label: '创建时间',
         key: 'created_time',
