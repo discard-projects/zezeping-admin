@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-select v-model="selectValue" filterable remote :placeholder="placeholder" :multiple="multiple" :remote-method="remoteMethod" :loading="loading" style="width: 90%">
+    <el-select v-model="selectValue" filterable remote clearable :placeholder="placeholder" :multiple="multiple" :remote-method="remoteMethod" :loading="loading" style="width: 90%">
       <el-option v-for="item in items" :key="item.id" :label="item[labelKey]" :value="item.id"></el-option>
     </el-select>
   </div>

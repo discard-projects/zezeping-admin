@@ -15,6 +15,7 @@ export default {
       this._fetchData(this.api.getStore(this.itemId))
     },
     handlerUpdate () {
+      console.log(this.form)
       this._handlerUpdate(this.api.putStore(this.form.id, this.getFormData(this.form)))
     }
   },

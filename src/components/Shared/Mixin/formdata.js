@@ -20,7 +20,7 @@ export default {
               formData.append(`${key}[]`, val)
             })
           } else {
-            if (value || value === false) {
+            if (value || value === false || value === '') {
               formData.append(key, value)
             }
           }
