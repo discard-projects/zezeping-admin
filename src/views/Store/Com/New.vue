@@ -19,6 +19,7 @@ export default {
         logo: null,
         category_ids: [],
         region_id: '',
+        user_id: '',
         address: '',
         attachment_image_ids: [],
         attachment_images: [],
