@@ -13,7 +13,7 @@
           <el-form-item label="区域">
             <model-select v-model="form.region_id" apiPath="/regions" labelKey="name"></model-select>
           </el-form-item>
-          <el-form-item label="用户">
+          <el-form-item label="绑定商家">
             <model-select v-model="form.user_id" apiPath="/users" labelKey="nickname_email_name" placeholder="nickname-email-name"></model-select>
           </el-form-item>
           <el-form-item label="详细地址">
