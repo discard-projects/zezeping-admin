@@ -13,7 +13,7 @@
         <!--<ToggleSwitch v-model="row.visible" :item="row" apiPath="/components/:id/toggle_switch?field=visible"></ToggleSwitch>-->
       <!--</template>-->
       <template slot="id" slot-scope="{row, $index, intro}">
-        <router-link :to="{name: 'StoreDetail', params: {id: row.id}}">{{row.id}}</router-link>
+        <el-button type="text" @click="$router.push({name: 'StoreDetail', params: {id: row.id}})">{{row.id}}</el-button>
       </template>
       <template slot="suggested_at" slot-scope="{row, $index, intro}">
         <ToggleSwitch v-model="row.suggested_at" :item="row" column="suggested_at" apiPath="/stores/:id/toggle_switch?field=suggested_at"></ToggleSwitch>

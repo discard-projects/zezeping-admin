@@ -12,14 +12,17 @@ export default {
   mixins: [edit, formdataMix],
   watch: {
     item (newVal) {
+      console.log('------------')
       if (newVal) {
+        console.log(newVal)
         this.form = Object.assign({}, newVal)
       }
     }
   },
   methods: {
     handlerUpdate () {
-      this._handlerUpdate(this.api.putStoreProductCategory(this.$route.params.id, this.item.id, this.form))
+      console.log(this.form)
+      this._handlerUpdate(this.api.putStoreProduct(this.$route.params.id, this.form.id, this.getFormData(this.form)))
     }
   },
   components: {

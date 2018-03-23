@@ -13,16 +13,16 @@ export default {
   data () {
     return {
       form: {
-        name: ''
+        name: '',
+        price: '',
+        image: null
       }
     }
   },
   methods: {
     handlerCreate () {
       let storeId = this.$route.params.id
-      let categoryId = this.dialogOptions.category.object.id
-      console.log(this.form)
-      this._handlerCreate(this.api.postStoreProductCategory(storeId, Object.assign(this.form, {category_id: categoryId})))
+      this._handlerCreate(this.api.postStoreProduct(storeId, this.getFormData(Object.assign(this.form, {product_category_id: this.dialogOptions.productCategory.id}))))
     }
   },
   components: {

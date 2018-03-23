@@ -2,13 +2,13 @@ export default {
   data () {
     return {
       dialogShow: false,
-      dialogoOptions: null,
+      dialogOptions: null,
       form: {}
     }
   },
   methods: {
     showDialog (options, isShow = true) {
-      this.dialogoOptions = options
+      this.dialogOptions = options
       this.dialogShow = isShow
     },
     _handlerCreate (promise) {
