@@ -10,6 +10,7 @@ let router = new Router({
     { path: '/', name: 'Home', component: (resolve) => { require(['@/views/Home/Index'], resolve) } },
     { path: '/login', name: 'Login', component: (resolve) => { require(['@/views/Login'], resolve) } },
     { path: '/stores', name: 'Store', component: (resolve) => { require(['@/views/Store/Index'], resolve) } },
+    { path: '/stores/:id', name: 'StoreDetail', component: (resolve) => { require(['@/views/Store/Detail/Index'], resolve) } },
     { path: '/regions', name: 'Region', component: (resolve) => { require(['@/views/Region/Index'], resolve) } },
     { path: '/categories', name: 'Category', component: (resolve) => { require(['@/views/Category/Index'], resolve) } },
     { path: '/banners', name: 'Banner', component: (resolve) => { require(['@/views/Banner/Index'], resolve) } },

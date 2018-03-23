@@ -12,6 +12,9 @@
       <!--<template slot="visible" slot-scope="{row, $index, intro}">-->
         <!--<ToggleSwitch v-model="row.visible" :item="row" apiPath="/components/:id/toggle_switch?field=visible"></ToggleSwitch>-->
       <!--</template>-->
+      <template slot="id" slot-scope="{row, $index, intro}">
+        <router-link :to="{name: 'StoreDetail', params: {id: row.id}}">{{row.id}}</router-link>
+      </template>
       <template slot="suggested_at" slot-scope="{row, $index, intro}">
         <ToggleSwitch v-model="row.suggested_at" :item="row" column="suggested_at" apiPath="/stores/:id/toggle_switch?field=suggested_at"></ToggleSwitch>
       </template>
@@ -55,7 +58,8 @@ export default {
       dataIntros: [{
         label: '#',
         key: 'id',
-        width: 100
+        width: 100,
+        ctrl: 'custom'
       }, {
         label: '名称',
         key: 'name'

@@ -18,8 +18,10 @@ export default {
         this.fetchData()
       }
     },
-    dialogShow () {
-      this.item = null
+    dialogShow (isShow) {
+      if (!isShow) {
+        this.item = null
+      }
     }
   },
   methods: {
