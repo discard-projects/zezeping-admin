@@ -1,5 +1,5 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',
-  API_ROOT: '"http://apa.zezeping.com"'
+  API_ROOT: '"https://apa.zezeping.com"'
 }
