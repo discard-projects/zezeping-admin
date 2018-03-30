@@ -48,8 +48,7 @@ export default {
       }
     },
     dropItem (item) {
-      console.log(item)
-      this.selectValue = [...this.selectValue.splice(this.selectValue.indexOf(item, 1))]
+      this.selectValue = this.attachmentImages.filter(e => e !== item)
     }
   }
 }
