@@ -14,6 +14,7 @@ export default {
     return {
       form: {
         name: '',
+        category: '',
         parent_id: '',
         enabled: true,
         recommended: false,

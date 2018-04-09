@@ -13,6 +13,9 @@ export default {
     value: {
       require: true
     },
+    extraParams: {
+      default: () => { return {} }
+    },
     item: {
       require: false,
       type: Object,
@@ -59,7 +62,7 @@ export default {
   methods: {
     remoteMethod (query, isFirst) {
       if (!isFirst) {
-        this.cusAxios.get(this.realApi, {params: {[`q_${this.labelKey}_cont`]: query}}).then(res => {
+        this.cusAxios.get(this.realApi, {params: Object.assign({[`q_${this.labelKey}_cont`]: query}, this.extraParams)}).then(res => {
           this.loading = false
           this.items = res.data.items
         }).catch(() => {
@@ -67,7 +70,7 @@ export default {
         })
       } else {
         let ids = this.multiple ? this.value : [this.value]
-        this.cusAxios.get(this.realApi, {params: {[`q_id_in_any`]: ids}}).then(res => {
+        this.cusAxios.get(this.realApi, Object.assign({params: {[`q_id_in_any`]: ids}}, this.extraParams)).then(res => {
           if (res.data.items) {
             this.items = res.data.items
           }

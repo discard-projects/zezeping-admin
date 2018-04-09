@@ -1,11 +1,14 @@
 <template>
   <div v-if="form">
-    <el-form ref="formRef" :model="form" label-width="80px">
+    <el-form ref="formRef" :roles="rules" :model="form" label-width="80px">
       <el-form-item label="名称">
         <el-input v-model="form.name"></el-input>
       </el-form-item>
+      <el-form-item label="分类类别">
+        <options-select v-model="form.category" :options="[{label: 'category_store', value: 'category_store'}, {label: 'category_post', value: 'category_post'}]"></options-select>
+      </el-form-item>
       <el-form-item label="父分类">
-        <model-select v-model="form.parent_id" apiPath="/categories" labelKey="name"></model-select>
+        <model-select v-model="form.parent_id" apiPath="/categories" :extraParams="{q_category_eq: form.category}" labelKey="name"></model-select>
       </el-form-item>
       <el-form-item label="Enabled">
         <el-switch v-model="form.enabled"></el-switch>
@@ -27,6 +30,7 @@
 <script>
 import form from '@/components/Shared/Mixin/form'
 import ModelSelect from '@/components/Shared/Select/ModelSelect'
+import OptionsSelect from '@/components/Shared/Select/OptionsSelect'
 import SingleUploader from '@/components/Shared/Uploader/SingleUploader'
 export default {
   mixins: [form],
@@ -34,7 +38,15 @@ export default {
     return {
       activePanelName: 'first',
       compiledErrData: '',
-      uploading: false
+      uploading: false,
+      rules: {
+        category: [
+          { required: true, message: '选择分类类型', trigger: 'blur' }
+        ],
+        name: [
+          { required: true, message: '选择分类类型', trigger: 'blur' }
+        ]
+      }
     }
   },
   methods: {
@@ -69,7 +81,8 @@ export default {
   },
   components: {
     ModelSelect,
-    SingleUploader
+    SingleUploader,
+    OptionsSelect
   }
 }
 </script>

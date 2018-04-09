@@ -4,6 +4,14 @@
       <el-form-item v-for="search in searches" :label="search.label" :key="search.key" v-if="search.control">
         <el-input v-if="search.control=='input'" v-model="q[search.key]" :placeholder="search.placeholder"></el-input>
         <checkbox-select v-else-if="search.control=='checkbox-select'" v-model="q[search.key]" clearable :falseLabel="search.falseLabel" :trueLabel="search.trueLabel" :placeholder="search.placeholder"></checkbox-select>
+        <el-select v-else-if="search.control=='select'" v-model="q[search.key]" :placeholder="search.placeholder || search.key" :disabled="search.disabled" :clearable="true">
+          <el-option
+            v-for="option in search.options"
+            :key="option[search.optionsValKey || 'value']"
+            :label="option[search.optionsLabelKey || 'label']"
+            :value="option[search.optionsValKey || 'value']">
+          </el-option>
+        </el-select>
       </el-form-item>
       <slot :search="search" v-else></slot>
       <el-form-item>

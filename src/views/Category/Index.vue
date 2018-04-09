@@ -53,6 +53,11 @@ export default {
           key: 'q_name_cont',
           type: String,
           placeholder: '名称'
+        }, {
+          control: 'select',
+          key: 'q_category_eq',
+          placeholder: '分类',
+          options: [{label: 'category_store', value: 'category_store'}, {label: 'category_post', value: 'category_post'}]
         }
       ]
     }
