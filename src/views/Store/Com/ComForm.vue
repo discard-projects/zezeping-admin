@@ -8,7 +8,7 @@
             <el-input v-model="form.name"></el-input>
           </el-form-item>
           <el-form-item label="分类">
-            <model-select v-model="form.category_ids" multiple apiPath="/categories" labelKey="name"></model-select>
+            <model-select v-model="form.category_ids" multiple apiPath="/categories" :extraParams="{q_category_eq: 'category_store'}" labelKey="name"></model-select>
           </el-form-item>
           <el-form-item label="区域">
             <model-select v-model="form.region_id" apiPath="/regions" labelKey="name"></model-select>
